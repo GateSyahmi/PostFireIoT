@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff, #ff4c4c);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .news-container {
+            width: 400px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .back-button {
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+        }
+        .news-item {
+            background: #f8d7da;
+            border-left: 5px solid #ff4c4c;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #ff4c4c;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-container">
+        <a href="home.html" class="back-button">&#8592;</a>
+        <h2>News & Updates</h2>
+        <div id="news-list"></div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        // Sample news data (can be loaded dynamically later)
+        const newsUpdates = [
+            "🔥 Post-Fire IoT system update v1.2 released!",
+            "🚀 Performance improvements for real-time monitoring.",
+            "🔧 Bug fixes and security enhancements applied.",
+            "📡 New cloud integration features added!"
+        ];
+
+        const newsList = document.getElementById("news-list");
+
+        // Dynamically insert news updates into the page
+        newsUpdates.forEach(update => {
+            const newsItem = document.createElement("div");
+            newsItem.className = "news-item";
+            newsItem.innerText = update;
+            newsList.appendChild(newsItem);
+        });
+    </script>
+</body>
+</html>

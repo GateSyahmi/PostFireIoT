@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #121212;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            color: #ff4c4c;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ff4c4c;
+            border-radius: 5px;
+            background: #252525;
+            color: white;
+        }
+        button {
+            background: #ff4c4c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #b22222;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            color: #ff6f6f;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="signup()">Sign Up</button>
+        <p id="message"></p>
+        <a href="login.html">Already have an account? Login</a>
+    </div>
+
+    <script>
+        function signup() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            if (email && password) {
+                localStorage.setItem("user", JSON.stringify({ email, password }));
+                message.style.color = "green";
+                message.innerText = "Signup successful! Redirecting...";
+                setTimeout(() => {
+                    window.location.href = "login.html"; // Redirect to login
+                }, 2000);
+            } else {
+                message.style.color = "red";
+                message.innerText = "Please fill all fields.";
+            }
+        }
+    </script>
+</body>
+</html>
